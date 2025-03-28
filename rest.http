@@ -1,0 +1,36 @@
+###
+
+GET http://localhost:5000/api/v1/users
+
+# Authorization: Bearer 
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZTA1NjY0ODhmZDE3ODdhZWIzZTZiNSIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQzMDEyODI4LCJleHAiOjE3NDMwOTkyMjh9.KI8sQOM09k6ojr8gJEt9izz023fG7OpiAprWhRlFspg
+
+### 
+
+POST http://localhost:5000/api/v1/users/signup HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "sara lover2",
+  "email": "sara-lover@example.com",
+  "password": "securepassword123"
+}
+
+### 
+
+GET  http://localhost:5000/api/v1/users/verify/40b4f0f1a0a4e66028ab269619bc1fe1114295b9
+
+### 
+
+POST http://localhost:5000/api/v1/users/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "securepassword123"
+}
+
+### 
+
+
+### 
