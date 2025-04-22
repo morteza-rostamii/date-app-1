@@ -1,0 +1,35 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{title}}</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    {{!-- alpine js --}}
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    {{!-- global store --}}
+    <script type="text/javascript" defer>
+      document.addEventListener('alpine:init', () => {
+        Alpine.store('global', {
+          randomNum: 0,
+
+          generateRandomNum() {
+            this.randomNum = Math.floor(Math.random() * 100)
+          }
+        })
+      })
+    </script>
+
+  </head>
+  <body>
+    {{#if isHome }}
+      {{> home.layout }}
+    {{else}}
+      <div>admin</div>
+    {{/if}}
+
+    {{! <script src="http://localhost:35729/livereload.js?snipver=1"></script> }}
+  </body>
+</html>

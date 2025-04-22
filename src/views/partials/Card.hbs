@@ -1,0 +1,15 @@
+{{! run code when the component is mounted }}
+<div
+  x-data="{ open: false }"
+  x-init="setTimeout(() => { alert('hello') }, 500)"
+>
+  {{#if open}}
+    <div class="card bg-white p-2">
+      this is a open card
+    </div>
+  {{else}}
+    <div class="card bg-white p-2">
+      this is a close card
+    </div>
+  {{/if}}
+</div>

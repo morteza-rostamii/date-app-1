@@ -10,7 +10,7 @@
     "start": "concurrently \"node dist/index.js\" \"node dist/workers/email.worker.js\"",
     "clean": "rimraf dist",
     "build": "npm run clean && tsc",
-    "dev": "concurrently --kill-others-on-fail --prefix \"[{name}]\" --names \"app,worker\" \"nodemon --exec npx ts-node -r tsconfig-paths/register src/index.ts\" \"npx ts-node -r tsconfig-paths/register src/workers/email.worker.ts\"",
+    "dev": "concurrently --kill-others-on-fail --prefix \"[{name}]\" --names \"app,worker,livereload\" \"nodemon --exec npx ts-node -r tsconfig-paths/register src/index.ts\" \"npx ts-node -r tsconfig-paths/register src/workers/email.worker.ts\" \"livereload \"./public,./src/views\" --extraExts hbs,ts,js\"",
     "worker": "npx ts-node -r tsconfig-paths/register src/workers/email.worker.ts"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "express-handlebars": "^8.0.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.12.2",
     "nodemailer": "^6.10.0",
@@ -30,18 +31,28 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/connect-livereload": "^0.6.3",
     "@types/cookie-parser": "^1.4.8",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
+    "@types/express-handlebars": "^6.0.2",
     "@types/jsonwebtoken": "^9.0.9",
+    "@types/livereload": "^0.9.5",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^22.13.11",
     "@types/nodemailer": "^6.4.17",
+    "babel-loader": "^10.0.0",
     "concurrently": "^9.1.2",
+    "connect-livereload": "^0.6.1",
+    "livereload": "^0.9.3",
     "nodemon": "^3.1.9",
     "rimraf": "^6.0.1",
+    "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "webpack": "^5.99.6",
+    "webpack-cli": "^6.0.1",
+    "webpack-node-externals": "^3.0.0"
   }
 }
